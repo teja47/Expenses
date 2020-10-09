@@ -26,7 +26,7 @@ SECRET_KEY = 'ks25jwww3xjae-uu+28^6z&5acx4u^*0&njhw955xsjl+g%qcl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['my-expenses-teja.herokuapp.com']
 
 
 # Application definition
@@ -125,10 +125,10 @@ CORS_ORIGIN_ALLOW_ALL =True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+STATIC_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'
 
-STATICFILES_DIRS= [
-    os.path.join(BASE_DIR, 'static')
-]
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
