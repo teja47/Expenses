@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 import os 
 import sys
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'ks25jwww3xjae-uu+28^6z&5acx4u^*0&njhw955xsjl+g%qcl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['expenses-project-teja.heroku.com']
+ALLOWED_HOSTS = ['expenses-project-teja.heroku.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -44,8 +45,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,11 +134,11 @@ STATICFILES_DIRS= [
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-STATICFILES_STORAGE='whitenoise.storage.ManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR,'build/static')
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL ='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'src')
-
+django_heroku.settings(locals())
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
