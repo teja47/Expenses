@@ -27,7 +27,7 @@ SECRET_KEY = 'ks25jwww3xjae-uu+28^6z&5acx4u^*0&njhw955xsjl+g%qcl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['expenses-project-teja.heroku.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['ex-my-app.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -129,16 +129,12 @@ CORS_ORIGIN_ALLOW_ALL =True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS= [
-     os.path.join(BASE_DIR, 'build/static'),
+     os.path.join(BASE_DIR, 'build/static')
 ]
-
-
-
-
 STATIC_ROOT = os.path.join(BASE_DIR,'build')
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL ='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'src')
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
