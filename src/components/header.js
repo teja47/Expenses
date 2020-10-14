@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button,   Input ,Form,Card, Navbar
+import {  Navbar
 } from 'react-bootstrap';
-import {Row,Col,Container} from 'react-bootstrap'
+import {Row,Col} from 'react-bootstrap'
 import './style.css'
 class Header extends React.Component{
 

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['expenses-project-teja.heroku.com','127.0.0.1','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,8 +46,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,7 +135,7 @@ STATICFILES_DIRS= [
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR,'build/static')
+STATIC_ROOT = os.path.join(BASE_DIR,'build')
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL ='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'src')

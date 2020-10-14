@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import {Card,Row,Badge,Button,Col} from 'react-bootstrap'
+import {Card,Row,Col} from 'react-bootstrap'
 const rest=[]
 const Print=(props)=>{
 props.p.map(res=>{
