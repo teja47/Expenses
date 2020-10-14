@@ -8,7 +8,7 @@ state={
 }
 
 componentDidMount(){
-    axios.get('http://127.0.0.1:7000/api/')
+    axios.get('https://ex-my-app.herokuapp.com/api/')
     .then(res=>{
         this.setState({
             da:res.data
